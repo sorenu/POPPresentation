@@ -17,9 +17,21 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[PTViewController new]];
+    //------------------
+    // First - removing animations: CA vs POP
+    //------------------
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[PTViewController3 new]];
+
+    //------------------
+    // Second - lots of animations
+    //------------------
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[PTViewController new]];
+
+    //------------------
+    // Third - animate a random object
+    //------------------
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[PTViewController2 new]];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[PTViewController3 new]];
+
     [self.window setRootViewController:navigationController];
 
     self.window.backgroundColor = [UIColor whiteColor];

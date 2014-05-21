@@ -61,7 +61,6 @@ static NSString * const kDecayAnimationKey = @"kDecayAnimationKey";
         [self moveDecayAnimationOnObject:gestureRecognizer.view withVelocity:velocity];
     }
     else {
-//        self.shape.center = destination;
         [self moveSpringAnimationOnObject:gestureRecognizer.view toPoint:destination];
     }
 }
@@ -82,13 +81,13 @@ static NSString * const kDecayAnimationKey = @"kDecayAnimationKey";
         [self transformSizeSpringAnimationOnObject:shape];
     }
     else if (2 == tapCount) {
-        [self transformToCircleBasicAnimationOnObject:shape];
+        [self transformToCircleAnimationOnObject:shape];
     }
     else if (3 == tapCount) {
         [self changeColorBasicAnimationOnObject:shape];
     }
     else if (4 == tapCount) {
-        [self transformToSquareBasicAnimationOnObject:shape];
+        [self transformToRectangleAnimationOnObject:shape];
     }
 
     else {
@@ -97,67 +96,28 @@ static NSString * const kDecayAnimationKey = @"kDecayAnimationKey";
     }
 }
 
+
 #pragma mark - POP Animations
 
-- (void)moveDecayAnimationOnObject:(UIView *)view withVelocity:(CGPoint)velocity {
-    POPDecayAnimation *animation = [view pop_animationForKey:kDecayAnimationKey];
+//------------------
+// Move
+//------------------
+- (void)moveSpringAnimationOnObject:(id)animatableObject toPoint:(CGPoint)destination {
+    POPSpringAnimation *animation = [animatableObject pop_animationForKey:kMoveAnimationKey];
 
     if (!animation) {
-        animation = [POPDecayAnimation animationWithPropertyNamed:kPOPViewCenter];
-        [view pop_addAnimation:animation forKey:kDecayAnimationKey];
-        animation.deceleration = 0.99;
+        animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+        animation.springSpeed = 1;
+        animation.springBounciness = 10;
+        [animatableObject pop_addAnimation:animation forKey:kMoveAnimationKey];
     }
 
-    animation.velocity = [NSValue valueWithCGPoint:(CGPoint){velocity.x, velocity.y}];
+    animation.toValue = [NSValue valueWithCGPoint:destination];
 }
 
-- (void)changeColorBasicAnimationOnObject:(UIView *)view {
-    POPBasicAnimation *animation = [view pop_animationForKey:kChangeColorAnimationKey];
-
-    if (!animation) {
-        animation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewBackgroundColor];
-        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        animation.duration = 1.0f;
-        [view pop_addAnimation:animation forKey:kChangeColorAnimationKey];
-    }
-
-    animation.toValue = [UIColor blueColor];
-}
-
-- (void)transformToCircleBasicAnimationOnObject:(UIView *)view {
-    POPSpringAnimation *animation = [view pop_animationForKey:kTransformShapeAnimationKey];
-
-    if (!animation) {
-        animation = [self cornerRadiusAnimation];
-        [view.layer pop_addAnimation:animation forKey:kTransformShapeAnimationKey];
-    }
-
-    animation.toValue = @([PTFrameBuilder bigRect].size.width/2);
-}
-
-- (void)transformToSquareBasicAnimationOnObject:(UIView *)view {
-    POPSpringAnimation *animation = [view.layer pop_animationForKey:kTransformShapeAnimationKey];
-    animation.toValue = @(0);
-}
-
-- (POPSpringAnimation *)cornerRadiusAnimation {
-    POPSpringAnimation *animation = [POPSpringAnimation new];
-    animation.removedOnCompletion = NO;
-
-    POPAnimatableProperty *customProperty = [POPAnimatableProperty propertyWithName:@"layer.cornerRadius" initializer:^(POPMutableAnimatableProperty *prop) {
-            prop.readBlock = ^(id obj, CGFloat values[]) {
-                values[0] = [obj cornerRadius];
-            };
-
-            prop.writeBlock = ^(id obj, const CGFloat values[]) {
-                [obj setCornerRadius:values[0]];
-            };
-        }];
-    animation.property = customProperty;
-
-    return animation;
-}
-
+//------------------
+// Size
+//------------------
 - (void)transformSizeSpringAnimationOnObject:(id)animatableObject {
     POPSpringAnimation *animation = [animatableObject pop_animationForKey:kTransformSizeAnimationKey];
 
@@ -171,33 +131,74 @@ static NSString * const kDecayAnimationKey = @"kDecayAnimationKey";
     animation.toValue = [NSValue valueWithCGSize:[PTFrameBuilder bigRect].size];
 }
 
-- (void)moveSpringAnimationOnObject:(id)animatableObject toPoint:(CGPoint)destination {
-    POPSpringAnimation *animation = [animatableObject pop_animationForKey:kMoveAnimationKey];
+//------------------
+// Color
+//------------------
+- (void)changeColorBasicAnimationOnObject:(UIView *)view {
+    POPBasicAnimation *animation = [view pop_animationForKey:kChangeColorAnimationKey];
 
     if (!animation) {
-        animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
-        animation.springSpeed = 3;
-        animation.springBounciness = 3;
-        [animatableObject pop_addAnimation:animation forKey:kMoveAnimationKey];
+        animation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewBackgroundColor];
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        animation.duration = 1.0f;
+        [view pop_addAnimation:animation forKey:kChangeColorAnimationKey];
     }
 
-    animation.toValue = [NSValue valueWithCGPoint:destination];
+    animation.toValue = [UIColor blueColor];
 }
 
+//------------------
+// Shape
+//------------------
+- (void)transformToCircleAnimationOnObject:(UIView *)view {
+    POPSpringAnimation *animation = [view pop_animationForKey:kTransformShapeAnimationKey];
 
-#pragma mark - UIView animations
+    if (!animation) {
+        animation = [self cornerRadiusAnimation];
+        [view.layer pop_addAnimation:animation forKey:kTransformShapeAnimationKey];
+    }
 
-- (void)moveUIViewAnimationOnObject:(UIView *)animatableView toPoint:(CGPoint)destination {
-    [UIView animateWithDuration:1.0
-                          delay:0.0
-         usingSpringWithDamping:0.6
-          initialSpringVelocity:0.0
-                        options:UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         [animatableView setCenter:destination];
-                     } completion:^(BOOL finished) {
+    animation.toValue = @([PTFrameBuilder bigRect].size.width/2);
+}
 
+- (void)transformToRectangleAnimationOnObject:(UIView *)view {
+    POPSpringAnimation *animation = [view.layer pop_animationForKey:kTransformShapeAnimationKey];
+    animation.toValue = @(0);
+}
+
+- (POPSpringAnimation *)cornerRadiusAnimation {
+    POPSpringAnimation *animation = [POPSpringAnimation new];
+    animation.removedOnCompletion = NO;
+
+    POPAnimatableProperty *customProperty = [POPAnimatableProperty propertyWithName:@"layer.cornerRadius" initializer:^(POPMutableAnimatableProperty *prop) {
+        prop.readBlock = ^(id obj, CGFloat values[]) {
+            values[0] = [obj cornerRadius];
+        };
+
+        prop.writeBlock = ^(id obj, const CGFloat values[]) {
+            [obj setCornerRadius:values[0]];
+        };
     }];
+    animation.property = customProperty;
+
+    return animation;
+}
+
+//------------------
+// Throw
+//------------------
+- (void)moveDecayAnimationOnObject:(UIView *)view withVelocity:(CGPoint)velocity {
+    [view pop_removeAnimationForKey:kMoveAnimationKey];
+
+    POPDecayAnimation *animation = [view pop_animationForKey:kDecayAnimationKey];
+
+    if (!animation) {
+        animation = [POPDecayAnimation animationWithPropertyNamed:kPOPViewCenter];
+        [view pop_addAnimation:animation forKey:kDecayAnimationKey];
+        animation.deceleration = 0.99;
+    }
+
+    animation.velocity = [NSValue valueWithCGPoint:(CGPoint){velocity.x, velocity.y}];
 }
 
 

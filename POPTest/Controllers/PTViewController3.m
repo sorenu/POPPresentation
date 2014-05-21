@@ -50,14 +50,12 @@ static NSString * const kPopAnimationKey = @"kPopAnimationKey";
     [self removePopAnimationFromView:self.popAnimatedView];
 }
 
-- (void)removeCoreAnimationFromView:(UIView *)view {
-    [view.layer removeAnimationForKey:kCoreAnimationAnimationKey];
-}
 
-- (void)removePopAnimationFromView:(UIView *)view {
-    [view pop_removeAnimationForKey:kPopAnimationKey];
-}
+#pragma mark - Applying animations
 
+//------------------
+// Core Animation
+//------------------
 - (void)applyCoreAnimationToView:(UIView *)view {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
     animation.duration = 10.f;
@@ -66,6 +64,9 @@ static NSString * const kPopAnimationKey = @"kPopAnimationKey";
     [view.layer addAnimation:animation forKey:kCoreAnimationAnimationKey];
 }
 
+//------------------
+// POP
+//------------------
 - (void)applyPopAnimationToView:(UIView *)view {
     POPBasicAnimation *animation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewCenter];
     animation.duration = 10.f;
@@ -74,6 +75,22 @@ static NSString * const kPopAnimationKey = @"kPopAnimationKey";
     [view pop_addAnimation:animation forKey:kPopAnimationKey];
 }
 
+
+#pragma mark - Removing animations
+
+//------------------
+// Core Animation
+//------------------
+- (void)removeCoreAnimationFromView:(UIView *)view {
+    [view.layer removeAnimationForKey:kCoreAnimationAnimationKey];
+}
+
+//------------------
+// POP
+//------------------
+- (void)removePopAnimationFromView:(UIView *)view {
+    [view pop_removeAnimationForKey:kPopAnimationKey];
+}
 
 #pragma mark - Lazy loading views
 
