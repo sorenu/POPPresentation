@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		842BAE57B71C4F099105C36C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5645EA3B0514AC08654E8DD /* libPods.a */; };
-		CA8ED0A900C7A78A49C5982C /* PTFrameBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED84646987B32677BE239 /* PTFrameBuilder.m */; };
 		CA8ED19CF1E6CE6493E3E296 /* POPTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED3C8F922B336CE78F3EE /* POPTestTests.m */; };
 		CA8ED20C950B3F7161F00776 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA8ED9AD46B4AD738A983216 /* InfoPlist.strings */; };
 		CA8ED29809DF36F32603ABC0 /* PTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED67E6D29F0D145BB2C3E /* PTViewController.m */; };
@@ -24,9 +23,9 @@
 		CA8EDB260A1EC61E78ECECD7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA8EDC3C5759D2A4DFA31F92 /* InfoPlist.strings */; };
 		CA8EDB67F712BCB8C00347EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8ED0A42CC4E786B013E7C8 /* Foundation.framework */; };
 		CA8EDB6B5B92BF7397842482 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8ED0A42CC4E786B013E7C8 /* Foundation.framework */; };
+		CA8EDC5F66044903EED272B1 /* PTFrameBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDDEAC5BD36615B0640BD /* PTFrameBuilder.m */; };
 		CA8EDDF1F0A7EFADF03C742D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED30673870D346DF87B1A /* main.m */; };
 		CA8EDE53B26D787145BF0834 /* AnimatableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE3E43EC3EE3509411A8 /* AnimatableObject.m */; };
-		CA8EDF595769D6BD769041F0 /* PTView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED4B51CCD6BEDEA812CD9 /* PTView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,19 +44,17 @@
 		CA8ED08D742437CF4958CAE8 /* POPTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "POPTestTests-Info.plist"; sourceTree = "<group>"; };
 		CA8ED0A42CC4E786B013E7C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CA8ED0BF0AA0AA21F3FC31E4 /* POPTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "POPTest-Info.plist"; sourceTree = "<group>"; };
+		CA8ED0EFA770FBD3D9F67CD6 /* PTFrameBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTFrameBuilder.h; sourceTree = "<group>"; };
 		CA8ED188D57FA08A427E16CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA8ED1E2BE324223CC926FCF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CA8ED22E7533AD56E2999DC1 /* PTViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTViewController3.m; sourceTree = "<group>"; };
 		CA8ED30673870D346DF87B1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA8ED3C8F922B336CE78F3EE /* POPTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POPTestTests.m; sourceTree = "<group>"; };
-		CA8ED4B51CCD6BEDEA812CD9 /* PTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTView.m; sourceTree = "<group>"; };
 		CA8ED562D02337F0C03923A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CA8ED67E6D29F0D145BB2C3E /* PTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTViewController.m; sourceTree = "<group>"; };
 		CA8ED697F37EFEF354FEA41F /* POPTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POPTest-Prefix.pch"; sourceTree = "<group>"; };
 		CA8ED73CED317D28E54FB45A /* PTViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTViewController2.h; sourceTree = "<group>"; };
 		CA8ED746A9B023BD3CB192E3 /* UIColor+random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+random.h"; sourceTree = "<group>"; };
-		CA8ED7FF4BA1C818A1AADFB1 /* PTFrameBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTFrameBuilder.h; sourceTree = "<group>"; };
-		CA8ED84646987B32677BE239 /* PTFrameBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTFrameBuilder.m; sourceTree = "<group>"; };
 		CA8ED85D4719F5D3C749C0CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CA8ED89936D9FEEF27164742 /* UIColor+random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+random.m"; sourceTree = "<group>"; };
 		CA8ED905BD03A757D4F8C39F /* PTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTViewController.h; sourceTree = "<group>"; };
@@ -66,8 +63,8 @@
 		CA8ED980C659EE354F7942E2 /* PTViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTViewController2.m; sourceTree = "<group>"; };
 		CA8EDAA81C143E56583686C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CA8EDB5A88A5B8B9E621DC25 /* AnimatableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatableObject.h; sourceTree = "<group>"; };
-		CA8EDCE55FD8065B170375AB /* PTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTView.h; sourceTree = "<group>"; };
 		CA8EDD6169F9C1770E766E66 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CA8EDDEAC5BD36615B0640BD /* PTFrameBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTFrameBuilder.m; sourceTree = "<group>"; };
 		CA8EDE3E43EC3EE3509411A8 /* AnimatableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatableObject.m; sourceTree = "<group>"; };
 		CA8EDE4DE42AFB6715B8BF64 /* PTViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTViewController3.h; sourceTree = "<group>"; };
 		CA8EDEA047DA2C38A9E1D407 /* SHPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPAppDelegate.m; sourceTree = "<group>"; };
@@ -149,6 +146,7 @@
 				CA8EDA9997CEF3189DFE3DD5 /* Controllers */,
 				CA8ED9EC05AC5106870B959B /* Additions */,
 				CA8ED7D7B8753071B790F927 /* Objects */,
+				CA8EDD6B72FBE086CFCDA905 /* Helpers */,
 			);
 			path = POPTest;
 			sourceTree = "<group>";
@@ -167,10 +165,6 @@
 			children = (
 				CA8ED67E6D29F0D145BB2C3E /* PTViewController.m */,
 				CA8ED905BD03A757D4F8C39F /* PTViewController.h */,
-				CA8ED4B51CCD6BEDEA812CD9 /* PTView.m */,
-				CA8EDCE55FD8065B170375AB /* PTView.h */,
-				CA8ED84646987B32677BE239 /* PTFrameBuilder.m */,
-				CA8ED7FF4BA1C818A1AADFB1 /* PTFrameBuilder.h */,
 				CA8ED980C659EE354F7942E2 /* PTViewController2.m */,
 				CA8ED73CED317D28E54FB45A /* PTViewController2.h */,
 				CA8ED22E7533AD56E2999DC1 /* PTViewController3.m */,
@@ -198,6 +192,15 @@
 				CA8ED95F292B9DBC1210B5DD /* POPTestTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CA8EDD6B72FBE086CFCDA905 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CA8ED0EFA770FBD3D9F67CD6 /* PTFrameBuilder.h */,
+				CA8EDDEAC5BD36615B0640BD /* PTFrameBuilder.m */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		CA8EDDE8CAECBB418CEDFB6E /* POPTestTests */ = {
@@ -346,12 +349,11 @@
 				CA8EDDF1F0A7EFADF03C742D /* main.m in Sources */,
 				CA8ED812FF0A33058A7E6761 /* SHPAppDelegate.m in Sources */,
 				CA8ED29809DF36F32603ABC0 /* PTViewController.m in Sources */,
-				CA8EDF595769D6BD769041F0 /* PTView.m in Sources */,
-				CA8ED0A900C7A78A49C5982C /* PTFrameBuilder.m in Sources */,
 				CA8EDA3795E8AFFAE3912916 /* UIColor+random.m in Sources */,
 				CA8EDE53B26D787145BF0834 /* AnimatableObject.m in Sources */,
 				CA8ED9404BCE434C9CD0D6B1 /* PTViewController2.m in Sources */,
 				CA8ED4E4E3BBDD49783CEBFA /* PTViewController3.m in Sources */,
+				CA8EDC5F66044903EED272B1 /* PTFrameBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
