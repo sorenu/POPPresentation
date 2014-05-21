@@ -16,7 +16,6 @@
 		CA8ED812FF0A33058A7E6761 /* SHPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDEA047DA2C38A9E1D407 /* SHPAppDelegate.m */; };
 		CA8ED83F45B0564230993F02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8ED188D57FA08A427E16CB /* UIKit.framework */; };
 		CA8ED9404BCE434C9CD0D6B1 /* PTViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED980C659EE354F7942E2 /* PTViewController2.m */; };
-		CA8EDA3795E8AFFAE3912916 /* UIColor+random.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED89936D9FEEF27164742 /* UIColor+random.m */; };
 		CA8EDA3EF36F31CD86A5226A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8ED188D57FA08A427E16CB /* UIKit.framework */; };
 		CA8EDADA228D39C804C4A8CE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8ED1E2BE324223CC926FCF /* XCTest.framework */; };
 		CA8EDB12B7CC873F6BE60A23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8ED85D4719F5D3C749C0CE /* CoreGraphics.framework */; };
@@ -54,9 +53,7 @@
 		CA8ED67E6D29F0D145BB2C3E /* PTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTViewController.m; sourceTree = "<group>"; };
 		CA8ED697F37EFEF354FEA41F /* POPTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POPTest-Prefix.pch"; sourceTree = "<group>"; };
 		CA8ED73CED317D28E54FB45A /* PTViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTViewController2.h; sourceTree = "<group>"; };
-		CA8ED746A9B023BD3CB192E3 /* UIColor+random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+random.h"; sourceTree = "<group>"; };
 		CA8ED85D4719F5D3C749C0CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CA8ED89936D9FEEF27164742 /* UIColor+random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+random.m"; sourceTree = "<group>"; };
 		CA8ED905BD03A757D4F8C39F /* PTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTViewController.h; sourceTree = "<group>"; };
 		CA8ED95F292B9DBC1210B5DD /* POPTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = POPTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8ED96F9502C7B3F5F5429A /* SHPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPAppDelegate.h; sourceTree = "<group>"; };
@@ -144,20 +141,10 @@
 				CA8EDEA047DA2C38A9E1D407 /* SHPAppDelegate.m */,
 				CA8EDD6169F9C1770E766E66 /* Images.xcassets */,
 				CA8EDA9997CEF3189DFE3DD5 /* Controllers */,
-				CA8ED9EC05AC5106870B959B /* Additions */,
 				CA8ED7D7B8753071B790F927 /* Objects */,
 				CA8EDD6B72FBE086CFCDA905 /* Helpers */,
 			);
 			path = POPTest;
-			sourceTree = "<group>";
-		};
-		CA8ED9EC05AC5106870B959B /* Additions */ = {
-			isa = PBXGroup;
-			children = (
-				CA8ED89936D9FEEF27164742 /* UIColor+random.m */,
-				CA8ED746A9B023BD3CB192E3 /* UIColor+random.h */,
-			);
-			path = Additions;
 			sourceTree = "<group>";
 		};
 		CA8EDA9997CEF3189DFE3DD5 /* Controllers */ = {
@@ -349,7 +336,6 @@
 				CA8EDDF1F0A7EFADF03C742D /* main.m in Sources */,
 				CA8ED812FF0A33058A7E6761 /* SHPAppDelegate.m in Sources */,
 				CA8ED29809DF36F32603ABC0 /* PTViewController.m in Sources */,
-				CA8EDA3795E8AFFAE3912916 /* UIColor+random.m in Sources */,
 				CA8EDE53B26D787145BF0834 /* AnimatableObject.m in Sources */,
 				CA8ED9404BCE434C9CD0D6B1 /* PTViewController2.m in Sources */,
 				CA8ED4E4E3BBDD49783CEBFA /* PTViewController3.m in Sources */,

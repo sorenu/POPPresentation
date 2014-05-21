@@ -5,7 +5,6 @@
 
 #import "PTViewController.h"
 #import "PTFrameBuilder.h"
-#import "UIColor+random.h"
 
 static NSString * const kMoveAnimationKey = @"kMoveAnimationKey";
 static NSString * const kTransformSizeAnimationKey = @"kTransformSizeAnimationKey";
@@ -16,7 +15,6 @@ static NSString * const kDecayAnimationKey = @"kDecayAnimationKey";
 @interface PTViewController ()
 
 @property (nonatomic, strong) UIView *shape;
-@property (nonatomic, strong) UIBarButtonItem *animationBarButton;
 
 @end
 
@@ -34,7 +32,6 @@ static NSString * const kDecayAnimationKey = @"kDecayAnimationKey";
 
 - (void)addSubviews {
     [self.view addSubview:self.shape];
-//    self.navigationItem.rightBarButtonItem = self.animationBarButton;
 }
 
 - (void)setupInitialState {
@@ -215,13 +212,6 @@ static NSString * const kDecayAnimationKey = @"kDecayAnimationKey";
         });
     }
     return _shape;
-}
-
-- (UIBarButtonItem *)animationBarButton {
-    if (!_animationBarButton) {
-        _animationBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStyleDone target:self action:@selector(setupInitialState)];
-    }
-    return _animationBarButton;
 }
 
 @end
