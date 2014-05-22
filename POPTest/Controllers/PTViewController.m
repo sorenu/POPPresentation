@@ -154,7 +154,19 @@ static NSString * const kDecayAnimationKey = @"kDecayAnimationKey";
     POPSpringAnimation *animation = [view pop_animationForKey:kTransformShapeAnimationKey];
 
     if (!animation) {
-        animation = [self cornerRadiusAnimation];
+        animation = [POPSpringAnimation new];
+        animation.removedOnCompletion = NO;
+
+        POPAnimatableProperty *customProperty = [POPAnimatableProperty propertyWithName:@"layer.cornerRadius" initializer:^(POPMutableAnimatableProperty *prop) {
+            prop.readBlock = ^(id obj, CGFloat values[]) {
+                values[0] = [obj cornerRadius];
+            };
+
+            prop.writeBlock = ^(id obj, const CGFloat values[]) {
+                [obj setCornerRadius:values[0]];
+            };
+        }];
+        animation.property = customProperty;
         [view.layer pop_addAnimation:animation forKey:kTransformShapeAnimationKey];
     }
 
@@ -166,23 +178,6 @@ static NSString * const kDecayAnimationKey = @"kDecayAnimationKey";
     animation.toValue = @(0);
 }
 
-- (POPSpringAnimation *)cornerRadiusAnimation {
-    POPSpringAnimation *animation = [POPSpringAnimation new];
-    animation.removedOnCompletion = NO;
-
-    POPAnimatableProperty *customProperty = [POPAnimatableProperty propertyWithName:@"layer.cornerRadius" initializer:^(POPMutableAnimatableProperty *prop) {
-        prop.readBlock = ^(id obj, CGFloat values[]) {
-            values[0] = [obj cornerRadius];
-        };
-
-        prop.writeBlock = ^(id obj, const CGFloat values[]) {
-            [obj setCornerRadius:values[0]];
-        };
-    }];
-    animation.property = customProperty;
-
-    return animation;
-}
 
 //------------------
 // Throw

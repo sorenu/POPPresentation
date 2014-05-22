@@ -20,12 +20,12 @@
     //------------------
     // First - removing animations: CA vs POP
     //------------------
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[PTViewController3 new]];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[PTViewController3 new]];
 
     //------------------
     // Second - lots of animations
     //------------------
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[PTViewController new]];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[PTViewController new]];
 
     //------------------
     // Third - animate a random object

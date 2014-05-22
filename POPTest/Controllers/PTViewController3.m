@@ -68,11 +68,11 @@ static NSString * const kPopAnimationKey = @"kPopAnimationKey";
 // POP
 //------------------
 - (void)applyPopAnimationToView:(UIView *)view {
-    POPBasicAnimation *animation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewCenter];
+    POPBasicAnimation *animation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPosition];
     animation.duration = 10.f;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     animation.toValue = [NSValue valueWithCGPoint:[PTFrameBuilder rightEndFrame].origin];
-    [view pop_addAnimation:animation forKey:kPopAnimationKey];
+    [view.layer pop_addAnimation:animation forKey:kPopAnimationKey];
 }
 
 
@@ -89,7 +89,7 @@ static NSString * const kPopAnimationKey = @"kPopAnimationKey";
 // POP
 //------------------
 - (void)removePopAnimationFromView:(UIView *)view {
-    [view pop_removeAnimationForKey:kPopAnimationKey];
+    [view.layer pop_removeAnimationForKey:kPopAnimationKey];
 }
 
 #pragma mark - Lazy loading views
